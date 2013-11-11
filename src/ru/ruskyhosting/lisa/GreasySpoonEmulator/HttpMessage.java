@@ -44,9 +44,9 @@ import java.util.Map;
  * <p>Javaサーブレットを使用して、Webページと通信を行います。<p>
  * <p>GreasySpoonのHttpMessageと同じような結果を返しますが、挙動が異なる場合もあるので注意してください。</p>
  * <p>使用方法は、以下の通りです。</p>
- * <code>HttpMessage httpMessage = new HttpMessage(String url)</code>
+ * <code>HttpMessage httpMessage = new HttpMessage(String url, MessageType messageType)</code>
  * <p>以降はhttpMessageに対して操作を行ってください。</p>
- * 
+ * <p><strong>現在はResponseにのみ対応しています。<strong></p>
  * @author Lisa
  */
 public class HttpMessage {
@@ -62,7 +62,8 @@ public class HttpMessage {
      * 
      * @param url 対象URL
      */
-    public HttpMessage(String url) {
+    // TODO: MessageTypeの種類による挙動の変化
+    public HttpMessage(String url, MessageType messageType) {
         this.url = url;
         try {
             this._url = new URL(url);
