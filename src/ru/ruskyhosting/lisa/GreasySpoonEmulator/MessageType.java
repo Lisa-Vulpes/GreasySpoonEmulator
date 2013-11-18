@@ -6,5 +6,7 @@ package ru.ruskyhosting.lisa.GreasySpoonEmulator;
  * @author Lisa
  */
 public enum MessageType {
-  REQUEST, RESPONSE;
+	/** @deprecated 未実装のため*/
+  REQUEST, 
+  RESPONSE;
 }

@@ -44,7 +44,7 @@ import java.util.Map;
  * <p>Javaサーブレットを使用して、Webページと通信を行います。<p>
  * <p>GreasySpoonのHttpMessageと同じような結果を返しますが、挙動が異なる場合もあるので注意してください。</p>
  * <p>使用方法は、以下の通りです。</p>
- * <code>HttpMessage httpMessage = new HttpMessage(String url, MessageType messageType)</code>
+ * <code><pre>HttpMessage httpMessage = new HttpMessage(String url, MessageType messageType)</pre></code>
  * <p>以降はhttpMessageに対して操作を行ってください。</p>
  * <p><strong>現在はResponseにのみ対応しています。<strong></p>
  * @author Lisa
@@ -66,7 +66,7 @@ public class HttpMessage {
     public HttpMessage(String url, MessageType messageType) {
         this.url = url;
         try {
-            this._url = new URL(url);
+            _url = new URL(url);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -271,12 +271,11 @@ public class HttpMessage {
     
     /**
      * 対象URLとの接続を確立します。
-     * 参考: http://x68000.q-e-d.net/~68user/net/java-http-url-connection-1.html
-     * 
+     *     * 
      * @return 対象URLとの接続
      */
     private HttpURLConnection getConnection() {
-        
+        // 参考: http://x68000.q-e-d.net/~68user/net/java-http-url-connection-1.html
         // 対象URLとの接続を開く
         try {
             connection = (HttpURLConnection) _url.openConnection();
